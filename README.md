@@ -60,3 +60,22 @@ export function Counter() {
     );
 }
 ```
+
+## React como Libreria
+
+Trabajaremos React como libreria, por lo cual vamos a necesitar instalar las dependencias.
+
+## Comandos
+
+```bash
+# para levantar el proyecto
+# dev es una version abreviada (ejecutamos el script guardado)
+npm run dev
+
+# para salir ctrl + c
+```
+
+## Recordar
+
+* Usar `let` o `const` en vez de `var`.
+* para cambiar el nombre de la variable ir a 'cambiar simbolo'.
