@@ -14,3 +14,12 @@ const [laMejor, ...elResto] = notas;
 
 console.log(laMejor); // 10
 console.log(elResto); // [8, 9, 7, 6]
+
+
+// todo: Asercion de constante (as const) [se trata como una tupla fija]
+// orden estricto, longitud fija, es de solo lectura.
+const returnArrayFn = () => ['ABC', 123] as const;
+
+const [letters, numbers] = returnArrayFn();
+
+console.log({letters, numbers});
