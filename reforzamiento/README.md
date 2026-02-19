@@ -1,73 +1,44 @@
-# React + TypeScript + Vite
+## 🏗️ Variables, Tipos y Objetos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+`const` vs `let`: Usamos const por defecto para todo lo que no cambie su referencia; let solo si el valor necesita ser reasignado (TypeScript mostrará el tipo en este caso porque es mutable).
 
-Currently, two official plugins are available:
+**Clog Pro**: Para ver el nombre de la variable junto a su valor en la consola, envolvela en llaves: ``console.log({ firstName, lastName });``.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Template Strings**: Usá backticks (`) para concatenar variables de forma limpia con ${}.
 
-## React Compiler
+**Inmutabilidad y Clonación**: Aunque un objeto sea const, podés cambiar sus propiedades internas. Para crear una copia real y no solo una referencia, usá ``structuredClone(objeto)``.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Conversión Rápida**: Podés convertir un string a number simplemente anteponiendo el símbolo + (ej: +'10').
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🧩 Desestructuración (El "Desarme")
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**Objetos**: Podés extraer propiedades y renombrarlas en el mismo paso: const { nombre: name } = persona;.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+**Arreglos**: La desestructuración es por posición. Podés saltar elementos dejando el espacio entre comas: const [a, , c] = array;.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**Operador Rest (...)**: Sirve para capturar "todo lo demás" en un nuevo arreglo u objeto.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+**Aserción as const**: Transforma un arreglo en una Tupla fija (solo lectura, orden estricto y longitud definida), vital para que TypeScript entienda los Hooks.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## ⚡ Funciones y Lógica de React
+
+**Funciones Flecha**: Son el estándar en React. Si retornás un objeto de forma implícita, recordá envolverlo en paréntesis: ``const fn = () => ({ id: 1 });``.
+
+**Shorthand (Paso por referencia)**: Si los argumentos que recibe una función son los mismos que entrega el método anterior, pasá solo el nombre: ``nombres.forEach(console.log);``.
+
+**Regla de Hooks**: Cualquier función que empiece con use (como useState) debe seguir las reglas de React y no ejecutarse en el nivel superior (top level) del archivo.
+
+**Manipulación de Datos**: Preferí .filter() o .find() sobre .forEach() cuando necesites transformar o buscar datos en arreglos de forma declarativa.
+
+
+## ⏳ Asincronía y APIs
+
+**Promesas**: Tienen tres estados (pendiente, resuelta, rechazada). El método .finally() se ejecuta siempre, sin importar el resultado.
+
+**Fetch API**: Recordá que fetch devuelve una promesa que debe ser transformada (generalmente a ``.json()``) antes de poder usar los datos.
+
+**Async / Await**: Es la forma más limpia de manejar asincronía. Permite leer el código de forma secuencial y requiere un bloque try...catch para manejar errores de forma profesional.
+
+**Tip de Pro**: En TypeScript, siempre definí Interfaces para tus objetos y Enums o Union Types para propiedades con valores fijos (como Owner.DC o Owner.Marvel), esto evita errores de escritura y mejora el autocompletado.
