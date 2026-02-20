@@ -35,10 +35,16 @@
 
 ## ⏳ Asincronía y APIs
 
-**Promesas**: Tienen tres estados (pendiente, resuelta, rechazada). El método .finally() se ejecuta siempre, sin importar el resultado.
+**Promesas**: Tienen tres estados (pendiente, resuelta, rechazada). El método ``.finally()`` se ejecuta siempre, sin importar el resultado.
 
-**Fetch API**: Recordá que fetch devuelve una promesa que debe ser transformada (generalmente a ``.json()``) antes de poder usar los datos.
+**Fetch API**: Fetch devuelve una promesa que debe ser transformada (generalmente a ``.json()``) antes de poder usar los datos.
 
 **Async / Await**: Es la forma más limpia de manejar asincronía. Permite leer el código de forma secuencial y requiere un bloque try...catch para manejar errores de forma profesional.
 
 **Tip de Pro**: En TypeScript, siempre definí Interfaces para tus objetos y Enums o Union Types para propiedades con valores fijos (como Owner.DC o Owner.Marvel), esto evita errores de escritura y mejora el autocompletado.
+
+**El doble await**: En una petición fetch, siempre necesitás dos esperas: una para la conexión (fetch) y otra para leer los datos (.json()).
+
+**Desestructuración de objetos anidados**: Usar ``:`` dentro de las llaves te permite "bucear" en objetos que están dentro de otros objetos (como city dentro de address) en una sola línea de código.
+
+**Manejo de errores**: El bloque catch es vital porque las peticiones fetch pueden fallar por problemas de red, y sin esto, tu app de React se "tildaría".
