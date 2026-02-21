@@ -1,20 +1,25 @@
-import type { Props } from './Props.interface'
+import type { Props } from "./Props.interface";
 
+const ItemCounter = ({ name, quantity }: Props) => {
+  const handleClick = () => {
+    console.log(`Click ${name}`);
+  };
 
-
-const ItemCounter = ({name, quantity}: Props) => {
   return (
     <section
-    style={{
-        display: 'flex', alignItems: 'center', gap: 10, marginTop: 10
-    }}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+        marginTop: 10,
+      }}
     >
-        <h3>{name}</h3>
-      <button>+1</button>
+      <h3>{name}</h3>
+      <button onClick={handleClick}>+1</button>
       <span>{quantity}</span>
-      <button>-1</button>
+      <button onClick={handleClick}>-1</button>
     </section>
-  )
-}
+  );
+};
 
-export default ItemCounter
+export default ItemCounter;
