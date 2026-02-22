@@ -1,0 +1,15 @@
+.item-row {
+    display: "flex";
+    align-items: center;
+    gap: 10;
+    margin-top: 10;
+}
+
+button {
+    background-color: blue;
+    border-radius: 20%;
+}
+
+span {
+    width: 150;
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Props } from "./Props.interface";
+import './ItemCounter.css'
 
 const ItemCounter = ({ name, quantity = 1 }: Props) => {
 
@@ -16,20 +17,8 @@ const ItemCounter = ({ name, quantity = 1 }: Props) => {
     setCount(count - 1)
   }
 
-
-  // const handleClick = () => {
-  //   console.log(`Click ${name}`);
-  // };
-
   return (
-    <section
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: 10,
-        marginTop: 10,
-      }}
-    >
+    <section className='item-row'>
       <h3>{name}</h3>
       <button onClick={handleAdd}>+1</button>
       <span>{count}</span>
