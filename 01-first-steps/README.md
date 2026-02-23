@@ -71,3 +71,14 @@ describe('Pruebas en <MyAwesomeApp />', () => {
     });
 });
 ```
+
+
+### 🔍 Tipos de Consultas (¿Cuál usar?)
+
+No todas las búsquedas de screen se comportan igual. Elegir la correcta te evita falsos positivos en los tests:
+
+``getBy...``: Es la más común. Si no encuentra el elemento, el test falla inmediatamente. Es ideal para elementos que sabés que deben estar ahí desde el inicio.
+
+``queryBy...``: Si no encuentra el elemento, devuelve null en lugar de romper el test. Es la herramienta perfecta para validar que algo no está en pantalla (ej: expect(screen.queryByText('Error')).toBeNull()).
+
+``findBy...``: Es la versión asíncrona. Devuelve una promesa y espera un tiempo (por defecto 1000ms) a que el elemento aparezca. Se usa con await para elementos que dependen de una API o un setTimeout.

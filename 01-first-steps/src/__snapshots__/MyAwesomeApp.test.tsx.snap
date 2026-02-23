@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MyAwesomeApp > should match snapshot 1`] = `
+<div>
+  <h1
+    data-testid="first-name"
+  >
+    Cristian
+  </h1>
+  <h3>
+    Valverde
+  </h3>
+  <h2>
+    activo
+  </h2>
+</div>
+`;
