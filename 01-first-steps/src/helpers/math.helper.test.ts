@@ -1,14 +1,32 @@
-import { expect, test } from 'vitest';
-import { add } from './math.helper'
+import { expect, test, describe } from 'vitest';
+import { add, divide, multiply, substract } from "./math.helper"; //
 
-test('descripcion de la prueba', () => {
-    //! Arrange
-    const a = 1;
-    const b = 1;
-
-    //! Act
-    const result = add(a,b);
+describe('Nombre del componente', () => {
     
-    //! Assert
-    expect(result).toBe(a+b);
-})
+    test('add debe retornar la suma de dos números', () => {
+        //! Arrange
+        const a = 10;
+        const b = 5;
+
+        //! Act
+        const result = add(a, b); //
+
+        //! Assert
+        expect(result).toBe(a+b);
+    });
+
+    test('substract debe retornar la resta de dos números', () => {
+        const result = substract(10, 5);
+        expect(result).toBe(5);
+    });
+
+    test('multiply debe retornar el producto de dos números', () => {
+        const result = multiply(3, 3);
+        expect(result).toBe(9);
+    });
+
+    test('divide debe retornar el cociente de dos números', () => {
+        const result = divide(10, 2);
+        expect(result).toBe(5);
+    });
+});

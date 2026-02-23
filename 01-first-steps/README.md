@@ -11,6 +11,63 @@ Es una "etiqueta de advertencia" que envuelve a tu aplicación para detectar pro
 **Asegura el Futuro**: Ayuda a que tu aplicación sea compatible con funciones avanzadas como el Concurrent Rendering, que permite a React pausar y reanudar actualizaciones de la interfaz.
 
 
-## Tips
+### Tips
 
 **Valores Booleanos**: no generan nada de codigo interno en react, para que muestre su valor hay que usar to string o un ternario.
+
+
+## ⚛️ React Testing Library (RTL)
+
+A diferencia de otras herramientas que prueban "cómo está hecho" el componente (las entrañas), RTL se enfoca en probar cómo lo usa una persona real.
+
+### Instalación
+
+```bash
+npm install --save-dev @testing-library/react @testing-library/dom
+```
+
+En `vite.config.ts` modificar lo siguiente:
+
+```ts
+import { defineConfig } from 'vitest/config'
+import react from '@vitejs/plugin-react-swc'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: 'jsdom',
+    globals: true
+  }
+})
+```
+
+### 🛠️ Las 3 piezas del rompecabezas
+
+Para testear un componente, usamos principalmente tres herramientas:
+
+1. ``render``: Es la función que "monta" tu componente en un DOM virtual para que podamos analizarlo.
+2. ``screen``: Es un objeto que nos da acceso a todo lo que el usuario "ve". Tiene métodos de búsqueda (queries) como: `getByText`, `getByRole`.
+   * 💡 **Queries prioritarias**: Siempre intentá buscar por Role o Text antes que por clases de CSS o IDs, ya que eso hace que tus tests sean más accesibles (ayudan a mejorar la accesibilidad de tu web).
+3. ``fireEvent`` / ``user-event``: Son los encargados de simular las acciones del usuario, como hacer click, escribir en un input o enviar un formulario.
+
+
+### 📝 Ejemplo de Estructura (Patrón AAA)
+
+```tsx
+import { render, screen, fireEvent } from '@testing-library/react';
+import { MyAwesomeApp } from './MyAwesomeApp';
+
+describe('Pruebas en <MyAwesomeApp />', () => {
+    
+    test('debe de mostrar el mensaje "Hola, soy Goku"', () => {
+        // 1. Arrange: Renderizamos el componente
+        render( <MyAwesomeApp /> );
+
+        // 2. Act: (En este caso no hay acción, solo validamos lo inicial)
+
+        // 3. Assert: Buscamos el texto en la pantalla
+        expect( screen.getByText('Hola, soy Goku') ).toBeTruthy();
+    });
+});
+```
