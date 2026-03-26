@@ -1,7 +1,7 @@
 import styles from './ItemListContainer.module.css'
 import { useState } from 'react';
 
-const Item = ({nombre, precio, stock}) => {
+const Item = ({ nombre, precio, stock }) => {
 
   const [cantidad, setCantidad] = useState(0);
 
@@ -16,7 +16,7 @@ const Item = ({nombre, precio, stock}) => {
       setCantidad(cantidad - 1)
     }
   }
-  
+
   const agregarAlCarrito = () => {
     alert(`¡Agregaste ${cantidad} unidades de ${nombre}  al carrito.`);
   }
@@ -26,7 +26,7 @@ const Item = ({nombre, precio, stock}) => {
       <h3>{nombre}</h3>
       <p>Precio: ${precio}</p>
       <p>Stock disponible: {stock}</p>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent:'center', margin: '10px 0' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '10px 0' }}>
         <button onClick={decrementar}>-</button>
         <p style={{ margin: '0 10px' }}>{cantidad}</p>
         <button onClick={incrementar}>+</button>
