@@ -1,8 +1,8 @@
-import styles from '../layout/Header.module.css'
+import styles from './Header.module.css'
 
 const Footer = () => {
     return (
-        <footer className={styles.header}>
+        <footer className={styles.footer}>
             <p>&copy; 2026 - Mi Aplicación React</p>
         </footer>
     )

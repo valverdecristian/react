@@ -1,6 +1,14 @@
 .header{
  background-color:#8DE2D6;
+ color:"white";
  padding:10px;
  text-Align:center;
- color:"white";
+}
+
+.footer{
+ background-color:#8DE2D6;
+ color:"black";
+ padding:10px;
+ text-Align:center;
+ margin-top: 20px;
 }
