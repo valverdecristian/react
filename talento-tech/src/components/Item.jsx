@@ -12,7 +12,7 @@ const Item = ({ nombre, precio, stock }) => {
   }
 
   const decrementar = () => {
-    if (cantidad > 1) {
+    if (cantidad > 0) {
       setCantidad(cantidad - 1)
     }
   }
