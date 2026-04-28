@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "nombre": "Miranda",
+        "email": "miranda@runway.com",
+        "puesto": "CEO",
+        "foto": "/images2/Miranda.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Andrea",
+        "email": "andrea@runway.com",
+        "puesto": "Segunda Asistente",
+        "foto": "/images2/Andrea.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Nigel",
+        "email": "nigel@runway.com",
+        "puesto": "Diseñador",
+        "foto": "/images2/Nigel.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Emily",
+        "email": "emily@runway.com",
+        "puesto": "Primera Asistente",
+        "foto": "/images2/Emily.jpg"
+    }
+]
