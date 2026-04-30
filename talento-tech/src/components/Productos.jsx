@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import styles from './Productos.module.css';
 
+const URL = import.meta.env.VITE_MOCKAPI;
+
 function Productos({ Mensaje }) {
 
   const [productos, setProductos] = useState([]);
@@ -8,7 +10,7 @@ function Productos({ Mensaje }) {
   const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    fetch('/data/productos.json')
+    fetch(`${URL}/productos`)
       .then((respuesta) => {
         if (!respuesta.ok) {
           throw new Error('No se pudo cargar la información de los productos');

@@ -1,4 +1,4 @@
-const FormularioProducto = ({ datosForm, manejarCambio, manejarEnvio }) => {
+const FormularioProducto = ({ datosForm, manejarCambio, manejarEnvio, manejarCambioImagen }) => {
   const formStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -47,7 +47,7 @@ const FormularioProducto = ({ datosForm, manejarCambio, manejarEnvio }) => {
         </div>
         <div>
           <label>Imagen:</label>
-          <input type="file" placeholder="https://…" />
+          <input type="file" onChange={manejarCambioImagen} />
         </div>
         <button type="submit">Guardar Producto</button>
       </form> </div>
